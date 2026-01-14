@@ -1,8 +1,182 @@
-<title>PKNT 25 POLKESBAN 2026 – Desa Cimanggu</title>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>PKNT25-POLKESBAN2026-Kelompok25DesaCimanggu</title>
 
-<meta name="description" content="Website resmi kegiatan PKNT 25 POLKESBAN 2026 Kelompok 25 di Desa Cimanggu berisi profil desa, program kerja, dan dokumentasi kegiatan.">
+  <meta name="description" content="Website kesehatan PKNT 25 POLKESBAN 2026 Kelompok 25 Desa Cimanggu untuk menghitung Indeks Massa Tubuh (BMI) dan tingkat obesitas masyarakat.">
+  <meta name="keywords" content="BMI, IMT, Obesitas, PKNT 2026, POLKESBAN, Desa Cimanggu, Kesehatan">
+  <meta name="author" content="Kelompok 25 PKNT POLKESBAN 2026">
 
-<meta name="keywords" content="PKNT 2026, POLKESBAN, Desa Cimanggu, Kelompok 25, Pengabdian Masyarakat">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #333;
+    }
 
-<meta name="author" content="Kelompok 25 PKNT POLKESBAN 2026">
+    header {
+      background: #0b2c6d;
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
+    section {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    h2 {
+      color: #0b2c6d;
+      text-align: center;
+    }
+
+    .form-group {
+      margin-top: 15px;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    button {
+      margin-top: 25px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background: #0b2c6d;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #08306b;
+    }
+
+    .result {
+      margin-top: 25px;
+      padding: 20px;
+      background: #eef4ff;
+      border-radius: 10px;
+      display: none;
+      text-align: center;
+    }
+
+    .bmi {
+      font-size: 36px;
+      font-weight: bold;
+      color: #ff7a00;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      background: #0b2c6d;
+      color: white;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- ===== BAGIAN 1: HEADER ===== -->
+<header>
+  <h1>Website Kesehatan PKNT 25</h1>
+  <p>POLKESBAN 2026 – Kelompok 25 Desa Cimanggu</p>
+  <p>Media Edukasi dan Pengecekan Tingkat Obesitas Masyarakat</p>
+</header>
+
+<!-- ===== BAGIAN 2: FORM INPUT ===== -->
+<section>
+  <h2>Input Data Kesehatan</h2>
+
+  <div class="form-group">
+    <label>Tinggi Badan (cm)</label>
+    <input type="number" id="height" placeholder="Contoh: 170">
+  </div>
+
+  <div class="form-group">
+    <label>Berat Badan (kg)</label>
+    <input type="number" id="weight" placeholder="Contoh: 65">
+  </div>
+
+  <div class="form-group">
+    <label>Usia (tahun)</label>
+    <input type="number" id="age" placeholder="Contoh: 21">
+  </div>
+
+  <button onclick="hitungBMI()">Submit</button>
+
+  <!-- ===== BAGIAN 3: HASIL ===== -->
+  <div class="result" id="result">
+    <h2>Hasil Perhitungan IMT</h2>
+    <p class="bmi" id="bmiValue"></p>
+    <p id="category"></p>
+  </div>
+</section>
+
+<footer>
+  © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu  
+  <br>
+  Website Resmi Kegiatan Pengabdian Kepada Masyarakat
+</footer>
+
+<script>
+  function hitungBMI() {
+    const tinggi = document.getElementById("height").value;
+    const berat = document.getElementById("weight").value;
+    const usia = document.getElementById("age").value;
+
+    if (tinggi === "" || berat === "" || usia === "") {
+      alert("Mohon lengkapi semua data!");
+      return;
+    }
+
+    const tinggiMeter = tinggi / 100;
+    const bmi = berat / (tinggiMeter * tinggiMeter);
+    const bmiFix = bmi.toFixed(1);
+
+    let kategori = "";
+
+    if (bmi < 18.5) {
+      kategori = "Kurus";
+    } else if (bmi < 25) {
+      kategori = "Normal";
+    } else if (bmi < 30) {
+      kategori = "Overweight";
+    } else if (bmi < 35) {
+      kategori = "Obesitas Kelas I";
+    } else if (bmi < 40) {
+      kategori = "Obesitas Kelas II";
+    } else {
+      kategori = "Obesitas Kelas III";
+    }
+
+    document.getElementById("bmiValue").innerText = bmiFix;
+    document.getElementById("category").innerText = kategori;
+    document.getElementById("result").style.display = "block";
+  }
+</script>
+
+</body>
+</html>
