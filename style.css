@@ -1,90 +1,51 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f5f7fa;
-    color: #333;
+    line-height: 1.7;
 }
 
-header {
+header, footer {
     background-color: #2f80ed;
     color: white;
     text-align: center;
-    padding: 30px 20px;
+    padding: 20px;
 }
 
-header h1 {
-    margin-bottom: 5px;
-}
-
-header span {
-    font-size: 14px;
-}
-
-.content {
-    padding: 30px;
-    background-color: white;
-    margin: 20px auto;
+main {
     max-width: 800px;
-    border-radius: 8px;
-}
-
-.content h2 {
-    color: #2f80ed;
-}
-
-.calculator {
-    background-color: #ffffff;
+    margin: auto;
     padding: 30px;
-    max-width: 400px;
-    margin: 20px auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.calculator h2 {
-    text-align: center;
+h2 {
     color: #2f80ed;
+    margin-top: 40px;
 }
 
-.calculator label {
-    display: block;
-    margin-top: 15px;
-}
-
-.calculator input {
+form input, button {
     width: 100%;
-    padding: 8px;
-    margin-top: 5px;
-}
-
-.calculator button {
-    width: 100%;
-    margin-top: 20px;
     padding: 10px;
+    margin-top: 10px;
+}
+
+button {
     background-color: #2f80ed;
     color: white;
     border: none;
-    border-radius: 5px;
     cursor: pointer;
 }
 
-.calculator button:hover {
-    background-color: #256ad1;
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 15px;
 }
 
-.result {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #eef3ff;
-    border-radius: 5px;
-    font-weight: bold;
-    text-align: center;
+table, th, td {
+    border: 1px solid #ccc;
 }
 
-footer {
+th, td {
+    padding: 10px;
     text-align: center;
-    padding: 15px;
-    background-color: #2f80ed;
-    color: white;
-    margin-top: 40px;
 }
