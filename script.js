@@ -1,38 +1,34 @@
-document.getElementById("bmiForm").addEventListener("submit", function(e) {
-    e.preventDefault();
+function hitungBMI() {
+  const tinggi = document.getElementById("height").value;
+  const berat = document.getElementById("weight").value;
+  const usia = document.getElementById("age").value;
 
-    const height = document.getElementById("height").value / 100;
-    const weight = document.getElementById("weight").value;
-    const age = document.getElementById("age").value;
+  if (tinggi === "" || berat === "" || usia === "") {
+    alert("Mohon lengkapi semua data!");
+    return;
+  }
 
-    const bmi = (weight / (height * height)).toFixed(2);
+  const tinggiMeter = tinggi / 100;
+  const bmi = berat / (tinggiMeter * tinggiMeter);
+  const bmiFix = bmi.toFixed(1);
 
-    let category = "";
-    let color = "";
+  let kategori = "";
 
-    if (bmi < 18.5) {
-        category = "Kurus";
-        color = "#3498db";
-    } else if (bmi < 25) {
-        category = "Normal";
-        color = "#2ecc71";
-    } else if (bmi < 30) {
-        category = "Kelebihan Berat Badan";
-        color = "#f1c40f";
-    } else {
-        category = "Obesitas";
-        color = "#e74c3c";
-    }
+  if (bmi < 18.5) {
+    kategori = "Kurus";
+  } else if (bmi < 25) {
+    kategori = "Normal";
+  } else if (bmi < 30) {
+    kategori = "Overweight";
+  } else if (bmi < 35) {
+    kategori = "Obesitas Kelas I";
+  } else if (bmi < 40) {
+    kategori = "Obesitas Kelas II";
+  } else {
+    kategori = "Obesitas Kelas III";
+  }
 
-    const resultDiv = document.getElementById("result");
-    resultDiv.style.display = "block";
-    resultDiv.style.background = color;
-    resultDiv.style.color = "white";
-
-    resultDiv.innerHTML = `
-        <strong>Hasil Perhitungan</strong><br><br>
-        Usia: ${age} tahun<br>
-        BMI: ${bmi}<br>
-        Kategori: <strong>${category}</strong>
-    `;
-});
+  document.getElementById("bmiValue").innerText = bmiFix;
+  document.getElementById("category").innerText = kategori;
+  document.getElementById("result").style.display = "block";
+}
