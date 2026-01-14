@@ -1,72 +1,38 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+document.getElementById("bmiForm").addEventListener("submit", function(e) {
+    e.preventDefault();
 
-body {
-    background: linear-gradient(135deg, #2ecc71, #27ae60);
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0;
-}
+    const height = document.getElementById("height").value / 100;
+    const weight = document.getElementById("weight").value;
+    const age = document.getElementById("age").value;
 
-.container {
-    background: #ffffff;
-    padding: 25px;
-    width: 350px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-    text-align: center;
-}
+    const bmi = (weight / (height * height)).toFixed(2);
 
-h1 {
-    color: #2c3e50;
-    margin-bottom: 5px;
-}
+    let category = "";
+    let color = "";
 
-p {
-    font-size: 13px;
-    color: #555;
-    margin-bottom: 20px;
-}
+    if (bmi < 18.5) {
+        category = "Kurus";
+        color = "#3498db";
+    } else if (bmi < 25) {
+        category = "Normal";
+        color = "#2ecc71";
+    } else if (bmi < 30) {
+        category = "Kelebihan Berat Badan";
+        color = "#f1c40f";
+    } else {
+        category = "Obesitas";
+        color = "#e74c3c";
+    }
 
-label {
-    display: block;
-    text-align: left;
-    margin-top: 10px;
-    font-size: 14px;
-}
+    const resultDiv = document.getElementById("result");
+    resultDiv.style.display = "block";
+    resultDiv.style.background = color;
+    resultDiv.style.color = "white";
 
-input {
-    width: 100%;
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-}
-
-button {
-    margin-top: 15px;
-    width: 100%;
-    padding: 12px;
-    background: #27ae60;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #219150;
-}
-
-.result {
-    margin-top: 20px;
-    padding: 15px;
-    border-radius: 8px;
-    display: none;
-    font-size: 14px;
-}
+    resultDiv.innerHTML = `
+        <strong>Hasil Perhitungan</strong><br><br>
+        Usia: ${age} tahun<br>
+        BMI: ${bmi}<br>
+        Kategori: <strong>${category}</strong>
+    `;
+});
