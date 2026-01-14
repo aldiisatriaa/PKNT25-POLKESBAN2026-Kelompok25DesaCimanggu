@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Hasil IMT</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>Hasil Perhitungan IMT</h1>
+</header>
+
+<main id="output"></main>
+
+<footer>
+    © 2026 PKNT Poltekkes Bandung
+</footer>
+
+<script>
+    const data = JSON.parse(localStorage.getItem("dataIMT"));
+
+    let kategori = "";
+    if (data.imt < 18.5) kategori = "Kurus";
+    else if (data.imt < 25) kategori = "Normal";
+    else if (data.imt < 30) kategori = "Kelebihan Berat Badan";
+    else kategori = "Obesitas";
+
+    document.getElementById("output").innerHTML = `
+        <p><strong>Tinggi Badan:</strong> ${data.tinggi} cm</p>
+        <p><strong>Berat Badan:</strong> ${data.berat} kg</p>
+        <p><strong>Usia:</strong> ${data.usia} tahun</p>
+        <p><strong>Nilai IMT:</strong> ${data.imt.toFixed(2)}</p>
+        <p><strong>Kategori:</strong> ${kategori}</p>
+    `;
+</script>
+
+</body>
+</html>
+
