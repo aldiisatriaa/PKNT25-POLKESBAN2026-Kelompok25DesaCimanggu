@@ -1,91 +1,121 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>PKNT 2026 – Cek IMT</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>PKNT25-POLKESBAN2026-Kelompok25DesaCimanggu</title>
+
+  <meta name="description" content="Website kesehatan PKNT 25 POLKESBAN 2026 Kelompok 25 Desa Cimanggu untuk menghitung Indeks Massa Tubuh (BMI) dan tingkat obesitas masyarakat.">
+  <meta name="keywords" content="BMI, IMT, Obesitas, PKNT 2026, POLKESBAN, Desa Cimanggu, Kesehatan">
+  <meta name="author" content="Kelompok 25 PKNT POLKESBAN 2026">
+
+  <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
 <header>
-    <h1>Website Edukasi Kesehatan</h1>
-    <p>PKNT Poltekkes Bandung 2026 – Kelompok 25 Desa Cimanggu</p>
+  <h1>Website Kesehatan PKNT 25</h1>
+  <p>POLKESBAN 2026 – Kelompok 25 Desa Cimanggu</p>
+  <p>Media Edukasi dan Pengecekan Tingkat Obesitas Masyarakat</p>
 </header>
 
-<main>
-    <h2>Apa itu Indeks Massa Tubuh (IMT)?</h2>
-    <p>
-        Indeks Massa Tubuh (IMT) atau Body Mass Index (BMI) merupakan indikator sederhana
-        yang digunakan untuk menilai status gizi seseorang berdasarkan berat badan dan
-        tinggi badan. IMT sering digunakan sebagai langkah awal untuk mengetahui risiko
-        masalah kesehatan akibat berat badan berlebih atau kekurangan.
-    </p>
+<section>
+  <h2>Apa itu IMT?</h2>
+  <p>
+    Indeks Massa Tubuh (IMT) adalah indikator sederhana yang digunakan untuk menilai status
+    gizi seseorang berdasarkan perbandingan berat badan dan tinggi badan. IMT sering digunakan
+    dalam bidang kesehatan masyarakat karena mudah dihitung dan dapat memberikan gambaran awal
+    mengenai risiko kesehatan terkait berat badan.
+  </p>
+</section>
 
-    <h2>Hitung IMT Anda</h2>
+<section>
+  <h2>Input Data Kesehatan</h2>
 
-    <form onsubmit="kirimData(event)">
-        <label>Tinggi Badan (cm)</label>
-        <input type="number" id="tinggi" required>
+  <form action="result.html" method="GET">
+    <div class="form-group">
+      <label>Tinggi Badan (cm)</label>
+      <input type="number" name="height" placeholder="Contoh: 170" required>
+    </div>
 
-        <label>Berat Badan (kg)</label>
-        <input type="number" id="berat" required>
+    <div class="form-group">
+      <label>Berat Badan (kg)</label>
+      <input type="number" name="weight" placeholder="Contoh: 65" required>
+    </div>
 
-        <label>Usia (tahun)</label>
-        <input type="number" id="usia" required>
+    <div class="form-group">
+      <label>Usia (tahun)</label>
+      <input type="number" name="age" placeholder="Contoh: 21" required>
+    </div>
 
-        <button type="submit">Hitung IMT</button>
-    </form>
+    <button type="submit">Hitung IMT</button>
+  </form>
+</section>
 
-    <h2>Tabel Klasifikasi IMT (BMI)</h2>
-    <table>
-        <tr>
-            <th>Nilai IMT</th>
-            <th>Klasifikasi</th>
-        </tr>
-        <tr>
-            <td>&lt; 18,5</td>
-            <td>Kurus</td>
-        </tr>
-        <tr>
-            <td>18,5 – 24,9</td>
-            <td>Normal</td>
-        </tr>
-        <tr>
-            <td>25 – 29,9</td>
-            <td>Kelebihan Berat Badan</td>
-        </tr>
-        <tr>
-            <td>≥ 30</td>
-            <td>Obesitas</td>
-        </tr>
-    </table>
+<section>
+  <h2>Tabel Klasifikasi IMT (BMI)</h2>
 
-    <h2>Mengapa Indeks Massa Tubuh (IMT) Penting?</h2>
-    <p>
-        Indeks Massa Tubuh (IMT) penting untuk diketahui karena dapat memberikan gambaran awal
-        mengenai status gizi seseorang. Dengan mengetahui nilai IMT, masyarakat dapat memahami
-        apakah berat badan yang dimiliki berada dalam kategori sehat, kurang, atau berlebih.
-    </p>
-    
-    <p>
-        IMT juga berperan sebagai alat skrining awal untuk mendeteksi risiko berbagai penyakit
-        tidak menular, seperti diabetes melitus, hipertensi, penyakit jantung, dan gangguan
-        metabolik lainnya. Risiko penyakit tersebut cenderung meningkat pada individu dengan
-        IMT yang terlalu rendah maupun terlalu tinggi.
-    </p>
-    
-    <p>
-        Selain itu, pemantauan IMT secara berkala dapat membantu individu dan tenaga kesehatan
-        dalam merencanakan pola hidup sehat, termasuk pengaturan pola makan, aktivitas fisik,
-        serta pencegahan obesitas sejak dini. Oleh karena itu, IMT menjadi indikator sederhana
-        namun penting dalam upaya peningkatan derajat kesehatan masyarakat.
-    </p>
-</main>
+  <table border="1" width="100%" cellpadding="8" cellspacing="0">
+    <tr>
+      <th>Nilai IMT</th>
+      <th>Kategori</th>
+    </tr>
+    <tr>
+      <td>&lt; 18.5</td>
+      <td>Kurus</td>
+    </tr>
+    <tr>
+      <td>18.5 – 24.9</td>
+      <td>Normal</td>
+    </tr>
+    <tr>
+      <td>25 – 29.9</td>
+      <td>Overweight</td>
+    </tr>
+    <tr>
+      <td>30 – 34.9</td>
+      <td>Obesitas Kelas I</td>
+    </tr>
+    <tr>
+      <td>35 – 39.9</td>
+      <td>Obesitas Kelas II</td>
+    </tr>
+    <tr>
+      <td>≥ 40</td>
+      <td>Obesitas Kelas III</td>
+    </tr>
+  </table>
+</section>
+
+<section>
+  <h2>Mengapa IMT Penting?</h2>
+
+  <p>
+    Indeks Massa Tubuh (IMT) penting untuk diketahui karena dapat memberikan gambaran awal
+    mengenai status gizi seseorang. Dengan mengetahui nilai IMT, masyarakat dapat memahami
+    apakah berat badan yang dimiliki berada dalam kategori sehat, kurang, atau berlebih.
+  </p>
+
+  <p>
+    IMT juga berperan sebagai alat skrining awal untuk mendeteksi risiko berbagai penyakit
+    tidak menular, seperti diabetes melitus, hipertensi, penyakit jantung, dan gangguan
+    metabolik lainnya. Risiko penyakit tersebut cenderung meningkat pada individu dengan
+    IMT yang terlalu rendah maupun terlalu tinggi.
+  </p>
+
+  <p>
+    Selain itu, pemantauan IMT secara berkala dapat membantu individu dan tenaga kesehatan
+    dalam merencanakan pola hidup sehat, termasuk pengaturan pola makan, aktivitas fisik,
+    serta pencegahan obesitas sejak dini. Oleh karena itu, IMT menjadi indikator sederhana
+    namun penting dalam upaya peningkatan derajat kesehatan masyarakat.
+  </p>
+</section>
 
 <footer>
-    © 2026 PKNT Poltekkes Bandung
+  © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu  
+  <br>
+  Website Resmi Kegiatan Pengabdian Kepada Masyarakat
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
