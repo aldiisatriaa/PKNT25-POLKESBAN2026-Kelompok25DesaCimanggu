@@ -1,62 +1,69 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>PKNT25-POLKESBAN2026-Kelompok25DesaCimanggu</title>
-
-  <meta name="description" content="Website kesehatan PKNT 25 POLKESBAN 2026 Kelompok 25 Desa Cimanggu untuk menghitung Indeks Massa Tubuh (BMI) dan tingkat obesitas masyarakat.">
-  <meta name="keywords" content="BMI, IMT, Obesitas, PKNT 2026, POLKESBAN, Desa Cimanggu, Kesehatan">
-  <meta name="author" content="Kelompok 25 PKNT POLKESBAN 2026">
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Website Kesehatan PKNT 2026</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-<!-- ===== BAGIAN 1: HEADER ===== -->
-<header>
-  <h1>Website Kesehatan PKNT 25</h1>
-  <p>POLKESBAN 2026 – Kelompok 25 Desa Cimanggu</p>
-  <p>Media Edukasi dan Pengecekan Tingkat Obesitas Masyarakat</p>
-</header>
+    <!-- HEADER -->
+    <header>
+        <h1>Website Kesehatan PKNT 2026</h1>
+        <p>Poltekkes Bandung – Kelompok 25 Desa Cimanggu</p>
+        <span>Media Edukasi dan Pengecekan Tingkat Obesitas Masyarakat</span>
+    </header>
 
-<!-- ===== BAGIAN 2: FORM INPUT ===== -->
-<section>
-  <h2>Input Data Kesehatan</h2>
+    <!-- EDUKASI IMT -->
+    <section class="content">
+        <h2>Apa itu Indeks Massa Tubuh (IMT)?</h2>
+        <p>
+            Indeks Massa Tubuh (IMT) atau Body Mass Index (BMI) adalah metode sederhana
+            untuk mengetahui status gizi seseorang berdasarkan perbandingan berat badan
+            dan tinggi badan. IMT digunakan sebagai alat skrining awal untuk mengetahui
+            apakah seseorang memiliki berat badan ideal, kurus, kelebihan berat badan,
+            atau obesitas.
+        </p>
+        <p>
+            Perlu diketahui bahwa IMT bukan diagnosis medis, namun dapat membantu
+            meningkatkan kesadaran akan pentingnya menjaga berat badan ideal.
+        </p>
+    </section>
 
-  <div class="form-group">
-    <label>Tinggi Badan (cm)</label>
-    <input type="number" id="height" placeholder="Contoh: 170">
-  </div>
+    <!-- FORM -->
+    <section class="calculator">
+        <h2>Hitung Indeks Massa Tubuh (IMT)</h2>
 
-  <div class="form-group">
-    <label>Berat Badan (kg)</label>
-    <input type="number" id="weight" placeholder="Contoh: 65">
-  </div>
+        <label>Tinggi Badan (cm)</label>
+        <input type="number" id="tinggi" placeholder="Masukkan tinggi badan">
 
-  <div class="form-group">
-    <label>Usia (tahun)</label>
-    <input type="number" id="age" placeholder="Contoh: 21">
-  </div>
+        <label>Berat Badan (kg)</label>
+        <input type="number" id="berat" placeholder="Masukkan berat badan">
 
-  <button onclick="hitungBMI()">Submit</button>
+        <label>Usia (tahun)</label>
+        <input type="number" id="usia" placeholder="Masukkan usia">
 
-  <!-- ===== BAGIAN 3: HASIL ===== -->
-  <div class="result" id="result">
-    <h2>Hasil Perhitungan IMT</h2>
-    <p class="bmi" id="bmiValue"></p>
-    <p id="category"></p>
-  </div>
-</section>
+        <button onclick="hitungIMT()">Hitung IMT</button>
 
-<footer>
-  © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu  
-  <br>
-  Website Resmi Kegiatan Pengabdian Kepada Masyarakat
-</footer>
+        <div class="result" id="hasil"></div>
+    </section>
 
-<script src="script.js"></script>
+    <!-- PENTINGNYA IMT -->
+    <section class="content">
+        <h2>Mengapa IMT Penting?</h2>
+        <ul>
+            <li>Membantu mendeteksi dini risiko obesitas</li>
+            <li>Mencegah penyakit seperti diabetes dan hipertensi</li>
+            <li>Meningkatkan kesadaran akan pola hidup sehat</li>
+            <li>Menjadi dasar evaluasi kesehatan masyarakat</li>
+        </ul>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 PKNT Poltekkes Bandung – Kelompok 25 Desa Cimanggu</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
