@@ -19,33 +19,33 @@
   <p>Media Edukasi dan Pengecekan Tingkat Obesitas Masyarakat</p>
 </header>
 
+<main>
+
 <section>
   <h2>Apa itu IMT?</h2>
   <p>
     Indeks Massa Tubuh (IMT) adalah indikator sederhana yang digunakan untuk menilai status
-    gizi seseorang berdasarkan perbandingan berat badan dan tinggi badan. IMT sering digunakan
-    dalam bidang kesehatan masyarakat karena mudah dihitung dan dapat memberikan gambaran awal
-    mengenai risiko kesehatan terkait berat badan.
+    gizi seseorang berdasarkan perbandingan berat badan dan tinggi badan.
   </p>
 </section>
 
 <section>
   <h2>Input Data Kesehatan</h2>
 
-  <form action="result.html" method="GET">
+  <form onsubmit="kirimData(event)">
     <div class="form-group">
       <label>Tinggi Badan (cm)</label>
-      <input type="number" name="height" placeholder="Contoh: 170" required>
+      <input type="number" id="tinggi" placeholder="Contoh: 170" required>
     </div>
 
     <div class="form-group">
       <label>Berat Badan (kg)</label>
-      <input type="number" name="weight" placeholder="Contoh: 65" required>
+      <input type="number" id="berat" placeholder="Contoh: 65" required>
     </div>
 
     <div class="form-group">
       <label>Usia (tahun)</label>
-      <input type="number" name="age" placeholder="Contoh: 21" required>
+      <input type="number" id="usia" placeholder="Contoh: 21" required>
     </div>
 
     <button type="submit">Hitung IMT</button>
@@ -55,7 +55,7 @@
 <section>
   <h2>Tabel Klasifikasi IMT (BMI)</h2>
 
-  <table border="1" width="100%" cellpadding="8" cellspacing="0">
+  <table>
     <tr>
       <th>Nilai IMT</th>
       <th>Kategori</th>
@@ -92,30 +92,29 @@
 
   <p>
     Indeks Massa Tubuh (IMT) penting untuk diketahui karena dapat memberikan gambaran awal
-    mengenai status gizi seseorang. Dengan mengetahui nilai IMT, masyarakat dapat memahami
-    apakah berat badan yang dimiliki berada dalam kategori sehat, kurang, atau berlebih.
+    mengenai status gizi seseorang.
   </p>
 
   <p>
-    IMT juga berperan sebagai alat skrining awal untuk mendeteksi risiko berbagai penyakit
-    tidak menular, seperti diabetes melitus, hipertensi, penyakit jantung, dan gangguan
-    metabolik lainnya. Risiko penyakit tersebut cenderung meningkat pada individu dengan
-    IMT yang terlalu rendah maupun terlalu tinggi.
+    IMT juga berperan sebagai alat skrining awal untuk mendeteksi risiko penyakit tidak menular
+    seperti diabetes, hipertensi, dan penyakit jantung.
   </p>
 
   <p>
-    Selain itu, pemantauan IMT secara berkala dapat membantu individu dan tenaga kesehatan
-    dalam merencanakan pola hidup sehat, termasuk pengaturan pola makan, aktivitas fisik,
-    serta pencegahan obesitas sejak dini. Oleh karena itu, IMT menjadi indikator sederhana
-    namun penting dalam upaya peningkatan derajat kesehatan masyarakat.
+    Pemantauan IMT secara berkala membantu masyarakat menjaga pola hidup sehat dan mencegah
+    obesitas sejak dini.
   </p>
 </section>
+
+</main>
 
 <footer>
   © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu  
   <br>
   Website Resmi Kegiatan Pengabdian Kepada Masyarakat
 </footer>
+
+<script src="script.js"></script>
 
 </body>
 </html>
