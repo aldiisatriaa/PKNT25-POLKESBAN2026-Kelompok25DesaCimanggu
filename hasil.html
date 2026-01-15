@@ -18,23 +18,32 @@
 </footer>
 
 <script>
-    const data = JSON.parse(localStorage.getItem("dataIMT"));
+if (!localStorage.getItem("dataIMT")) {
+    alert("Silakan isi data IMT terlebih dahulu!");
+    window.location.href = "index.html";
+}
 
-    let kategori = "";
-    if (data.imt < 18.5) kategori = "Kurus";
-    else if (data.imt < 25) kategori = "Normal";
-    else if (data.imt < 30) kategori = "Kelebihan Berat Badan";
-    else kategori = "Obesitas";
+const data = JSON.parse(localStorage.getItem("dataIMT"));
 
-    document.getElementById("output").innerHTML = `
-        <p><strong>Tinggi Badan:</strong> ${data.tinggi} cm</p>
-        <p><strong>Berat Badan:</strong> ${data.berat} kg</p>
-        <p><strong>Usia:</strong> ${data.usia} tahun</p>
-        <p><strong>Nilai IMT:</strong> ${data.imt.toFixed(2)}</p>
-        <p><strong>Kategori:</strong> ${kategori}</p>
-    `;
+let kategori = "";
+if (data.imt < 18.5) kategori = "Kurus";
+else if (data.imt < 25) kategori = "Normal";
+else if (data.imt < 30) kategori = "Kelebihan Berat Badan";
+else kategori = "Obesitas";
+
+document.getElementById("output").innerHTML = `
+    <h2>Ringkasan Hasil</h2>
+    <p><strong>Tinggi Badan:</strong> ${data.tinggi} cm</p>
+    <p><strong>Berat Badan:</strong> ${data.berat} kg</p>
+    <p><strong>Usia:</strong> ${data.usia} tahun</p>
+    <p><strong>Nilai IMT:</strong> ${data.imt.toFixed(2)}</p>
+    <p><strong>Kategori:</strong> ${kategori}</p>
+
+    <button onclick="window.location.href='index.html'">
+      Hitung Lagi
+    </button>
+`;
 </script>
 
 </body>
 </html>
-
