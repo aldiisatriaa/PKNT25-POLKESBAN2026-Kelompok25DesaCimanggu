@@ -1,48 +1,113 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <title>Hasil IMT</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Hasil IMT</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body {
+      background: #FBF6E3;
+    }
+
+    .hasil-container {
+      max-width: 900px;
+      margin: 50px auto;
+      text-align: center;
+    }
+
+    .card {
+      background: white;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    }
+
+    .judul-hasil {
+      color: #58441A;
+      margin-bottom: 20px;
+    }
+
+    .nilai-imt {
+      font-size: 48px;
+      font-weight: bold;
+      color: #58441A;
+      margin: 10px 0;
+    }
+
+    .kategori {
+      font-size: 22px;
+      font-weight: bold;
+      color: #827A6B;
+      margin-bottom: 20px;
+    }
+
+    .detail p {
+      font-size: 16px;
+      margin: 5px 0;
+    }
+
+    .btn-kembali {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 10px 20px;
+      background: #58441A;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+    }
+  </style>
 </head>
+
 <body>
 
 <header>
-    <h1>Hasil Perhitungan IMT</h1>
+  <h1>Hasil Perhitungan IMT</h1>
 </header>
 
-<main id="output"></main>
+<div class="hasil-container">
+  <div class="card">
+    <h2 class="judul-hasil">Hasil Status Gizi Anda</h2>
+
+    <div class="nilai-imt" id="nilaiIMT">--</div>
+    <div class="kategori" id="kategoriIMT">--</div>
+
+    <div class="detail">
+      <p><strong>Tinggi Badan:</strong> <span id="outTinggi"></span> cm</p>
+      <p><strong>Berat Badan:</strong> <span id="outBerat"></span> kg</p>
+      <p><strong>Usia:</strong> <span id="outUsia"></span> tahun</p>
+    </div>
+
+    <a href="index.html" class="btn-kembali">← Kembali</a>
+  </div>
+</div>
 
 <footer>
-    © 2026 PKNT Poltekkes Bandung
+  © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu
 </footer>
 
 <script>
-if (!localStorage.getItem("dataIMT")) {
-    alert("Silakan isi data IMT terlebih dahulu!");
+  const data = JSON.parse(localStorage.getItem("dataIMT"));
+
+  if (!data) {
+    alert("Data tidak ditemukan! Silakan hitung IMT terlebih dahulu.");
     window.location.href = "index.html";
-}
+  }
 
-const data = JSON.parse(localStorage.getItem("dataIMT"));
+  let kategori = "";
+  if (data.imt < 18.5) kategori = "Kurus";
+  else if (data.imt < 25) kategori = "Normal";
+  else if (data.imt < 30) kategori = "Overweight";
+  else if (data.imt < 35) kategori = "Obesitas Kelas I";
+  else if (data.imt < 40) kategori = "Obesitas Kelas II";
+  else kategori = "Obesitas Kelas III";
 
-let kategori = "";
-if (data.imt < 18.5) kategori = "Kurus";
-else if (data.imt < 25) kategori = "Normal";
-else if (data.imt < 30) kategori = "Kelebihan Berat Badan";
-else kategori = "Obesitas";
+  document.getElementById("nilaiIMT").innerText = data.imt.toFixed(1);
+  document.getElementById("kategoriIMT").innerText = kategori;
 
-document.getElementById("output").innerHTML = `
-    <h2>Ringkasan Hasil</h2>
-    <p><strong>Tinggi Badan:</strong> ${data.tinggi} cm</p>
-    <p><strong>Berat Badan:</strong> ${data.berat} kg</p>
-    <p><strong>Usia:</strong> ${data.usia} tahun</p>
-    <p><strong>Nilai IMT:</strong> ${data.imt.toFixed(2)}</p>
-    <p><strong>Kategori:</strong> ${kategori}</p>
-
-    <button onclick="window.location.href='index.html'">
-      Hitung Lagi
-    </button>
-`;
+  document.getElementById("outTinggi").innerText = data.tinggi;
+  document.getElementById("outBerat").innerText = data.berat;
+  document.getElementById("outUsia").innerText = data.usia;
 </script>
 
 </body>
