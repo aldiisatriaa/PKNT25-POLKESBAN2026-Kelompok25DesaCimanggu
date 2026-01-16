@@ -1,183 +1,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <title>Hasil IMT</title>
-  <link rel="stylesheet" href="style.css">
-
-  <style>
-    body {
-      background: #FBF6E3;
-    }
-
-    .hasil-container {
-      max-width: 900px;
-      margin: 50px auto;
-      text-align: center;
-    }
-
-    .card {
-      background: white;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-    }
-
-    .judul-hasil {
-      color: #58441A;
-      margin-bottom: 20px;
-    }
-
-    .nilai-imt {
-      font-size: 48px;
-      font-weight: bold;
-      color: #58441A;
-      margin: 10px 0;
-    }
-
-    .kategori {
-      font-size: 22px;
-      font-weight: bold;
-      color: #827A6B;
-      margin-bottom: 20px;
-    }
-
-    .penjelasan {
-      margin: 20px 0;
-      padding: 15px;
-      background: #FFF7E6;
-      border-radius: 10px;
-      text-align: left;
-      color: #58441A;
-    }
-
-    .btn-group {
-      margin-top: 20px;
-    }
-
-    .btn-info {
-      display: inline-block;
-      margin: 5px;
-      padding: 10px 15px;
-      background: #58441A;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-size: 14px;
-    }
-
-    .btn-kembali {
-      display: inline-block;
-      margin-top: 25px;
-      padding: 10px 20px;
-      background: #58441A;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-    }
-  </style>
+<meta charset="UTF-8">
+<title>Hipertensi</title>
+<link rel="stylesheet" href="style.css">
+<style>
+body { background:#FBF6E3; }
+.container {
+ max-width:900px; margin:50px auto; text-align:left;
+ background:white; padding:30px; border-radius:15px;
+ box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+h2 { color:#58441A; }
+.btn { display:inline-block; margin-top:20px;
+ padding:10px 20px; background:#58441A; color:white;
+ text-decoration:none; border-radius:8px;}
+</style>
 </head>
 
 <body>
+<header><h1>Hipertensi (Tekanan Darah Tinggi)</h1></header>
 
-<header>
-  <h1>Hasil Perhitungan IMT</h1>
-</header>
+<div class="container">
+<h2>Apa itu Hipertensi?</h2>
+<p>Hipertensi adalah kondisi ketika tekanan darah berada di atas normal dalam jangka waktu lama. 
+Sering disebut “silent killer” karena bisa terjadi tanpa gejala jelas.</p>
 
-<div class="hasil-container">
-  <div class="card">
-    <h2 class="judul-hasil">Hasil Status Gizi Anda</h2>
+<h3>Penyebab Umum</h3>
+<ul>
+<li>Konsumsi garam berlebihan</li>
+<li>Kegemukan / obesitas</li>
+<li>Kurang olahraga</li>
+<li>Stres berkepanjangan</li>
+<li>Merokok</li>
+</ul>
 
-    <div class="nilai-imt" id="nilaiIMT">--</div>
-    <div class="kategori" id="kategoriIMT">--</div>
+<h3>Risiko Jika Tidak Ditangani</h3>
+<ul>
+<li>Penyakit jantung</li>
+<li>Stroke</li>
+<li>Gagal ginjal</li>
+</ul>
 
-    <div class="detail">
-      <p><strong>Tinggi Badan:</strong> <span id="outTinggi"></span> cm</p>
-      <p><strong>Berat Badan:</strong> <span id="outBerat"></span> kg</p>
-      <p><strong>Usia:</strong> <span id="outUsia"></span> tahun</p>
-    </div>
+<h3>Solusi & Pencegahan</h3>
+<ul>
+<li>Kurangi garam</li>
+<li>Perbanyak sayur dan buah</li>
+<li>Olahraga 30 menit/hari</li>
+<li>Jaga berat badan</li>
+<li>Periksa tekanan darah rutin</li>
+</ul>
 
-    <!-- BAGIAN BARU: PENJELASAN HASIL -->
-    <div class="penjelasan" id="penjelasanIMT">
-      Menunggu hasil...
-    </div>
-
-    <!-- BAGIAN BARU: TOMBOL KE PAGE LAIN -->
-    <h3>Cari tahu lebih lanjut:</h3>
-    <div class="btn-group">
-      <a href="hipertensi.html" class="btn-info">Hipertensi</a>
-      <a href="obesitas.html" class="btn-info">Obesitas</a>
-      <a href="isipiringku.html" class="btn-info">Isi Piringku</a>
-      <a href="diabetes.html" class="btn-info">Diabetes</a>
-    </div>
-
-    <a href="index.html" class="btn-kembali">← Kembali</a>
-  </div>
+<a href="hasil.html" class="btn">← Kembali ke Hasil IMT</a>
 </div>
 
-<footer>
-  © 2026 PKNT 25 POLKESBAN – Kelompok 25 Desa Cimanggu
+<footer style="text-align:center; margin-top:20px;">
+© 2026 PKNT 25 POLKESBAN
 </footer>
-
-<script>
-  const data = JSON.parse(localStorage.getItem("dataIMT"));
-
-  if (!data) {
-    alert("Data tidak ditemukan! Silakan hitung IMT terlebih dahulu.");
-    window.location.href = "index.html";
-  }
-
-  let kategori = "";
-  let penjelasan = "";
-
-  if (data.imt < 18.5) {
-    kategori = "Kurus";
-    penjelasan = 
-      "Berat badan Anda berada di bawah standar ideal. Kondisi ini bisa " +
-      "berisiko menyebabkan penurunan daya tahan tubuh, anemia, dan kelelahan. " +
-      "Disarankan meningkatkan asupan gizi seimbang dan berkonsultasi dengan tenaga kesehatan.";
-  }
-  else if (data.imt < 25) {
-    kategori = "Normal";
-    penjelasan = 
-      "Berat badan Anda sudah ideal. Pertahankan pola makan seimbang, " +
-      "rutin berolahraga, dan tidur cukup untuk menjaga kesehatan jangka panjang.";
-  }
-  else if (data.imt < 30) {
-    kategori = "Overweight";
-    penjelasan = 
-      "Berat badan Anda sedikit berlebih. Kondisi ini dapat meningkatkan risiko " +
-      "penyakit seperti hipertensi dan diabetes. Disarankan mengurangi konsumsi gula, " +
-      "lemak, serta meningkatkan aktivitas fisik.";
-  }
-  else if (data.imt < 35) {
-    kategori = "Obesitas Kelas I";
-    penjelasan = 
-      "Anda berada pada kategori obesitas tingkat ringan. Risiko penyakit metabolik " +
-      "mulai meningkat, terutama hipertensi dan diabetes. Disarankan mengatur pola makan " +
-      "dan berkonsultasi dengan tenaga kesehatan.";
-  }
-  else if (data.imt < 40) {
-    kategori = "Obesitas Kelas II";
-    penjelasan = 
-      "Obesitas tingkat sedang. Risiko komplikasi kesehatan cukup tinggi, termasuk " +
-      "penyakit jantung dan gangguan metabolik. Perlu pendampingan medis dan perubahan gaya hidup.";
-  }
-  else {
-    kategori = "Obesitas Kelas III";
-    penjelasan = 
-      "Obesitas tingkat berat dengan risiko kesehatan sangat tinggi. Sangat dianjurkan " +
-      "untuk segera berkonsultasi dengan dokter atau ahli gizi.";
-  }
-
-  document.getElementById("nilaiIMT").innerText = data.imt.toFixed(1);
-  document.getElementById("kategoriIMT").innerText = kategori;
-  document.getElementById("penjelasanIMT").innerText = penjelasan;
-
-  document.getElementById("outTinggi").innerText = data.tinggi;
-  document.getElementById("outBerat").innerText = data.berat;
-  document.getElementById("outUsia").innerText = data.usia;
-</script>
-
 </body>
 </html>
