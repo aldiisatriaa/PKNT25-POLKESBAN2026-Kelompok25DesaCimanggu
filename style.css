@@ -1,60 +1,88 @@
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    line-height: 1.7;
-    background-color: #f4f7fb;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  line-height: 1.7;
+  background-color: var(--cream);
+  color: var(--black-soft);
 }
 
-header, footer {
-    background-color: #2f80ed;
-    color: white;
-    text-align: center;
-    padding: 20px;
+/* HEADER */
+header {
+  background: linear-gradient(135deg, var(--brown), var(--beige-dark));
+  color: var(--white);
+  text-align: center;
+  padding: 25px;
 }
 
-main {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+/* CONTAINER AGAR TIDAK MEJOK KE KIRI */
+section, main {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px 30px;
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
 }
 
+/* JUDUL */
 h2 {
-    color: #2f80ed;
-    margin-top: 30px;
+  color: var(--brown);
+  border-bottom: 2px solid var(--beige-light);
+  padding-bottom: 8px;
 }
 
-form input, button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 10px;
+/* FORM */
+.form-group {
+  margin-bottom: 15px;
 }
 
+form input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--beige-dark);
+  border-radius: 6px;
+}
+
+/* TOMBOL */
 button {
-    background-color: #2f80ed;
-    color: white;
-    border: none;
-    cursor: pointer;
-    font-weight: bold;
+  width: 100%;
+  padding: 12px;
+  background: var(--brown);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
 }
 
 button:hover {
-    background-color: #1b5fd9;
+  background: var(--beige-dark);
 }
 
+/* TABEL */
 table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 15px;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 15px;
+  background: var(--white);
 }
 
-table, th, td {
-    border: 1px solid #ccc;
+th {
+  background: var(--beige-dark);
+  color: white;
 }
 
-th, td {
-    padding: 10px;
-    text-align: center;
+td, th {
+  padding: 10px;
+  border: 1px solid var(--beige-light);
+  text-align: center;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  background: var(--brown);
+  color: white;
+  padding: 15px;
+  margin-top: 40px;
 }
