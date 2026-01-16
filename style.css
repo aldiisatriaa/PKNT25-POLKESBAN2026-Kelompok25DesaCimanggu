@@ -18,11 +18,36 @@ body {
 
 /* ====== HEADER (PAKAI PALET ANDA) ====== */
 header {
-  background: linear-gradient(135deg, var(--brown), var(--beige-dark));
-  color: var(--white);
-  text-align: center;
-  padding: 25px;
+  background: #0b2c6d;
+  color: white;
+  padding: 30px 20px;
 }
+
+.header-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.logo-header {
+  width: 80px;
+  height: auto;
+}
+
+.header-text {
+  text-align: left;
+}
+
+.header-text h1 {
+  margin: 0;
+}
+
+.header-text p {
+  margin: 5px 0 0 0;
+}
+
 
 /* ====== AGAR TIDAK MEJOK KIRI ====== */
 section, main {
